@@ -7,9 +7,9 @@ import numpy as np
 import click
 
 @click.command()
-@click.option('--in_file', default='./testdata/sample_bitcoin_de_transactions.csv', 
+@click.option('--in_file', default='./data/sample_bitcoin_de_transactions.csv', 
         help='The path to the input csv file obtained from bitcoin.de')
-@click.option('--out_file', default='./testdata/sample_output.csv', 
+@click.option('--out_file', default='./data/output.csv', 
         help='Output path for the converted csv file. If just the filename '
         'is provided, saves into the directory where this script lives.')
 def convert(in_file: str, out_file: str)->None:
