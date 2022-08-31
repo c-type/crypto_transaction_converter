@@ -14,23 +14,23 @@ import click
         'is provided, saves into the directory where this script lives.')
 def convert(in_file: str, out_file: str)->None:
     """Main conversion function"""
-
+    
+    # Setup file paths
     PARENT_DIR = pathlib.Path(__file__).resolve().parent
-
     in_file = PARENT_DIR / in_file
     out_file = PARENT_DIR / out_file
 
+    # Read in bitcoin.de csv file
     bc_df = pd.read_csv(in_file, sep=';')
-
     bc_df = format_cols(bc_df)
-    cointracker_cols = ['Date', 'Received Quantity', 'Received Currency', 'Sent Quantity', 'Sent Currency', 'Fee Amount', 'Fee Currency', 'Tag']
 
+    # Initialize output dataframe
+    cointracker_cols = ['Date', 'Received Quantity', 'Received Currency', 'Sent Quantity', 'Sent Currency', 'Fee Amount', 'Fee Currency', 'Tag']
     ct_df = pd.DataFrame(columns=cointracker_cols)
 
+    # Handle Dates
     cointracker_format = '%m/%d/%Y %H:%M:%S'
     date_series = [dt.strftime(cointracker_format) for dt in bc_df.iloc[:,0]]
-
-    # Handle Dates
     ct_df['Date'] = date_series
 
     # Handle Purchases
@@ -69,10 +69,8 @@ def convert(in_file: str, out_file: str)->None:
 def format_cols(df: pd.DataFrame)->pd.DataFrame:
     """Format assign right data types to columns"""
     df_formatted = df.copy()
-    
     bitcoin_fmt = '%Y-%m-%d %H:%M:%S'
     date_series = [datetime.datetime.strptime(date_str, bitcoin_fmt) for date_str in df_formatted.iloc[:,0]]
-
     df_formatted.iloc[:,0] = date_series
     return df_formatted
 
