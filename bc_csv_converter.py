@@ -5,7 +5,7 @@ import numpy as np
 
 PARENT_DIR = pathlib.Path(__file__).resolve().parent
 
-in_file_path = PARENT_DIR / 'testdata/btc_account_statement_20110825-20220831.csv'
+in_file_path = PARENT_DIR / 'testdata/sample_bitcoin_de_transactionsc.csv'
 out_file_path = PARENT_DIR / 'testdata/cointracker_table.csv'
 
 bc_df = pd.read_csv(in_file_path, sep=';')
@@ -56,7 +56,7 @@ ct_df['Fee Amount'][disburse_idx] = np.abs(bc_df['Incoming / Outgoing'][disburse
 ct_df['Fee Currency'][disburse_idx] = 'BTC'
 ct_df['Sent Quantity'][disburse_idx] = np.abs(bc_df['Incoming / Outgoing'][disburse_idx])
 ct_df['Sent Currency'][disburse_idx] = 'BTC'
-ct_df['Tag'][disburse_idx] = 'Disbursement'
+ct_df['Tag'][disburse_idx] = 'gift'
 
 # Drop NAN lines
 ct_df.drop(index=np.where(ct_df['Fee Currency'].isna())[0], inplace=True)

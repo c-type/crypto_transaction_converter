@@ -1,0 +1,9 @@
+Date,Type,Currency,Reference,BTC-address,Price,unit (rate),BTC incl. fee,amount before fee,unit (amount before fee),BTC excl. Bitcoin.de fee,amount after Bitcoin.de-fee,unit (amount after Bitcoin.de-fee),Incoming / Outgoing,Account balance
+,,,,,,,,,,,,,,
+2013-11-26 13:13:02,Purchase,BTC,B2J34W,,505.34,BTC / EUR,1,607,EUR,0.99,601,EUR,0.88,12
+2017-07-28 14:15:03,Sale,BTC,BD83KM,,11011.12,BTC / EUR,0.05,605,EUR,0.0495,600,EUR,-0.2,23
+2019-04-05 15:07:05,Purchase,BTC,R9M38C,,4100.45,BTC / EUR,0.1,404,EUR,0.099,399,EUR,0.1,43
+2021-05-29 11:39:02,Sale,BTC,LK93JD,,28034,BTC / EUR,0.304,9300,EUR,0.30096,9290,EUR,-0.25,45
+2021-12-20 06:16:03,Purchase,BTC,PO09EW,,35164,BTC / EUR,0.1243,5100,EUR,0.123057,5050,EUR,0.15,65
+2022-01-01 11:23:16,Disbursement,BTC,,,,,,,,,,,-1,76
+2022-01-01 11:23:16,Network fee,BTC,,,,,,,,,,,-0.00002,34
